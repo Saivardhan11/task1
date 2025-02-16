@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .navbar {
+            background-color: #111;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+        .navbar a {
+            color: #ff3333;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .section {
+            padding: 100px 20px;
+            height: 100vh;
+            text-align: center;
+        }
+        #section1 {
+            background-color: #2a2a2a;
+        }
+        #section2 {
+            background-color: #3a3a3a;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#section1">Section 1</a>
+        <a href="#section2">Section 2</a>
+    </div>
+    <div id="section1" class="section">
+        <h1>Section 1</h1>
+        <p>Welcome to the first section.</p>
+    </div>
+    <div id="section2" class="section">
+        <h1>Section 2</h1>
+        <p>Welcome to the second section.</p>
+    </div>
+    <script>
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
